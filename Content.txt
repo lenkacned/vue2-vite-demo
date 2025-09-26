@@ -10,3 +10,12 @@ The Vue.js 2 Fundamentals course covers:
 8. Attribute Bindings and dynamic classes
 
 Link: https://vueschool.io/courses/vuejs-fundamentals
+
+two-way data binding (header, input), v-model,
+Vue's instance, Vue's reactivity system,
+Vue-Html komunikacija (prepoznavanje Vue data podataka i direktiva, din. renderovanje DOM-a, virtual DOM (diffing/patching)),
+Liste, v-for,
+Dev Tools from Chrome -extension,
+User Eventi (button click, enter, del, tab, etc.)
+Vue metode ("DRY", THIS)
+
