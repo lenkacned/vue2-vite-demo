@@ -1,0 +1,12 @@
+The Vue.js 2 Fundamentals course covers:
+
+1. Introduction to two-way data binding
+2. Template syntax and expressions
+3. Vue directives, loops and conditional rendering
+4. Vue Devtools
+5. Handling user Inputs
+6. Handling Events
+7. Vue.js Methods and Computed Properties
+8. Attribute Bindings and dynamic classes
+
+Link: https://vueschool.io/courses/vuejs-fundamentals
