@@ -22,10 +22,10 @@
         </div>
         <div v-if="state === 'edit'" class="add-item-form">
             <input v-model="newItem" type="text" placeholder="Add new item" @keyup.enter="saveItem" />
-            <button class="btn btn-primary" : disabled="newItem.length === 0" @click="saveItem">Save Item</button>
+            <button class="btn btn-primary" :disabled="newItem.length === 0" @click="saveItem">Save Item</button>
         </div>
         <ul>
-            <li v-for="item in items">{{ item }}</li>
+            <li v-for="item in reversedItems" :class="{strikeout:  item.purchased}" @click="togglePurchased(item)">{{ item.label }}</li>
         </ul>
         <p v-if="items.length === 0">Nice job! You've bought all your items</p>
         <!-- <input type="text" v-model="header" /> -->
@@ -39,19 +39,45 @@
                 header: 'shopping list app',
                 newItem: '',
                 items: [
-                    // '10 party hats',
-                    // '2 board games',
-                    // '20 cups',
-                ],
+                    {
+                        label: 'item 1',
+                        purchased: false,
+                        highPriority: false,
+                    },
+                    {
+                         label: 'item 2',
+                        purchased: true,
+                        highPriority: true,
+                    },
+                    {
+                         label: 'item 3',
+                        purchased: false,
+                        highPriority: true,
+                    },
+                ]
+            },
+            computed: {
+                reversedItems() {
+                    return this.items.slice(0).reverse();
+                }
             },
             methods: {
                 saveItem: function () {
-                    this.items.push(this.newItem);
+                    // this.items.push(this.newItem);
+                    this.items.push(
+                        {
+                            label: this.newItem,
+                            purchased: false
+                        }
+                    )
                     this.newItem = '';
                 },
-                changeState: function(newState) {
+                changeState: function (newState) {
                     this.state = newState;
                     this.newItem = '';
+                },
+                togglePurchased: function(item) {
+                    item.purchased = !item.purchased;
                 }
             }
         });
